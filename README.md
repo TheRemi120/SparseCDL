@@ -33,22 +33,22 @@ Here’s a quick example to learn a dictionary and reconstruct signals:
 import numpy as np
 from borelliCDL import fit_D_Z, reconstructMySignal
 
-# Example signals (replace with real data)
-Y = np.random.randn(3, 1000)  # 3 signals, length 1000
 
-# Dictionary learning parameters
+Y = np.random.randn(3, 1000)  #3 signals of length T= 1000
+
+#Dictionary learning hyper-parameters
 n_atoms = 5
 n_times_atom = 350
 reg = 0.045
 n_iter = 3
 
-# Learn dictionary and activations
+#Learn the dictionary and activations to fit the signals
 pobj, times, d_hat, z_hat, reg, iteration_count = fit_D_Z(Y, n_atoms, n_times_atom, reg, n_iter)
 
-# Reconstruct signals
+#Reconstruct the signals to visualize them
 reconstructed_signals = reconstructMySignal(d_hat, z_hat)
 
-# Display results
+#Print results
 print("Objective:", pobj)
 print("Computation times:", times)
 print("Iteration count:", iteration_count)
